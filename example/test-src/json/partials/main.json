@@ -1,0 +1,8 @@
+"main": {
+  "property1": "Bar",
+  "property2": "Foo",
+  "property3": "Bar Foo",
+  "property4": "Foo Bar",
+
+  @include('./sub-partials/sub-main.json')
+},

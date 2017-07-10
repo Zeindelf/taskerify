@@ -1,0 +1,112 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$facebook-icon-name: 'facebook-icon';
+$facebook-icon-x: 0px;
+$facebook-icon-y: 0px;
+$facebook-icon-offset-x: 0px;
+$facebook-icon-offset-y: 0px;
+$facebook-icon-width: 240px;
+$facebook-icon-height: 240px;
+$facebook-icon-total-width: 480px;
+$facebook-icon-total-height: 480px;
+$facebook-icon-image: './../img/sprite-img.png';
+$facebook-icon: (0px, 0px, 0px, 0px, 240px, 240px, 480px, 480px, './../img/sprite-img.png', 'facebook-icon', );
+$google-plus-icon-name: 'google-plus-icon';
+$google-plus-icon-x: 240px;
+$google-plus-icon-y: 0px;
+$google-plus-icon-offset-x: -240px;
+$google-plus-icon-offset-y: 0px;
+$google-plus-icon-width: 240px;
+$google-plus-icon-height: 240px;
+$google-plus-icon-total-width: 480px;
+$google-plus-icon-total-height: 480px;
+$google-plus-icon-image: './../img/sprite-img.png';
+$google-plus-icon: (240px, 0px, -240px, 0px, 240px, 240px, 480px, 480px, './../img/sprite-img.png', 'google-plus-icon', );
+$twitter-icon-name: 'twitter-icon';
+$twitter-icon-x: 0px;
+$twitter-icon-y: 240px;
+$twitter-icon-offset-x: 0px;
+$twitter-icon-offset-y: -240px;
+$twitter-icon-width: 240px;
+$twitter-icon-height: 240px;
+$twitter-icon-total-width: 480px;
+$twitter-icon-total-height: 480px;
+$twitter-icon-image: './../img/sprite-img.png';
+$twitter-icon: (0px, 240px, 0px, -240px, 240px, 240px, 480px, 480px, './../img/sprite-img.png', 'twitter-icon', );
+$spritesheet-width: 480px;
+$spritesheet-height: 480px;
+$spritesheet-image: './../img/sprite-img.png';
+$spritesheet-sprites: ($facebook-icon, $google-plus-icon, $twitter-icon, );
+$spritesheet: (480px, 480px, './../img/sprite-img.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

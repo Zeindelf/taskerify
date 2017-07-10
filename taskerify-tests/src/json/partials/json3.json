@@ -1,0 +1,3 @@
+"json3": {
+  @include('./sub-partial/json4.json')
+}

@@ -1,0 +1,5 @@
+{
+  @include('./partials/json1.json')
+  @include('./partials/json2.json')
+  @include('./partials/json3.json')
+}

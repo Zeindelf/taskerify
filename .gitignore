@@ -1,0 +1,7 @@
+dist/
+example/test-dist/
+example/test-dist/node_modules/
+example/test-dist/*.log
+node_modules/
+*.log
+*.sublime-*

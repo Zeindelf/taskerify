@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "clean": "rm -Rf ./test-dist",
+    "start": "npm run clean && gulp --colors && gulp watch --colors",
+    "build": "npm run clean && gulp --colors --production"
+  }
+}
