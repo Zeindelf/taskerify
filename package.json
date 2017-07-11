@@ -1,6 +1,6 @@
 {
   "name": "taskerify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A task-builder based on Laravel-Elixir.",
   "main": "dist/index.js",
   "scripts": {
@@ -12,10 +12,19 @@
     "type": "git",
     "url": "https://github.com/zeindelf/taskerify"
   },
+  "keywords": [
+    "taskerify",
+    "tasker",
+    "task",
+    "runner",
+    "gulp"
+    "laravel",
+    "elixir"
+  ],
   "author": {
     "name": "Wellington Barreto",
     "email": "zeindelf@hotmail.com",
-    "homepage": "http://zeindelf.com"
+    "homepage": "https://www.zeindelf.com"
   },
   "license": "MIT",
   "dependencies": {
