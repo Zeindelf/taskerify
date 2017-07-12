@@ -17,7 +17,7 @@ Taskerify( mix => {
     const files = ['app', 'main'];
 
     // JSON Include Partial Files (Especially for Shopify's dev)
-    mix.jsonInclude('index.json') // Only file name. Locate: ./Taskerify.config.srcPath/json/index.json | Compiled at: ./Taskerify.config.distPath/json/index.json
+    mix.jsonInclude(`${SRC}/json/index.json`) // Compiled at: ./Taskerify.config.distPath/json/index.json
         .jsonInclude(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/renamed-file.json`);
 
     // ESLint activated
