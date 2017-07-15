@@ -4,5 +4,5 @@
   "property3-rename": "Bar Foo",
   "property4-rename": "Foo Bar",
 
-  @include('./sub-partials/sub-main.json')
+  @@include('./sub-partials/sub-main.json')
 },

@@ -17,8 +17,10 @@ Taskerify( mix => {
     const files = ['app', 'main'];
 
     // JSON Include Partial Files (Especially for Shopify's dev)
-    mix.jsonInclude(`${SRC}/json/index.json`) // Compiled at: ./Taskerify.config.distPath/json/index.json
-        .jsonInclude(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/renamed-file.json`);
+    mix.partialifyJSON(`${SRC}/json/index.json`) // Compiled at: ./Taskerify.config.distPath/json/index.json
+        .partialifyJSON(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) //Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
+        .partialifyHTML(`${SRC}/views/index.html`) // Compiled at: ./Taskerify.config.distPath/index.html
+        .partialifyHTML(`${SRC}/views/index.html`, `${DIST}/html/renamed-file.html`); // Compiled at: ./Taskerify.config.distPath/html/html-renamed.json
 
     // ESLint activated
     mix.eslint();

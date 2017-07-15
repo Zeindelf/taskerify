@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+    @@include('./partials/head.html')
+<body>
+    @@include('./partials/svg-sprites.html')
+
+    @@include('./partials/content.html')
+
+    @@include('./partials/var/variables.html', {
+        "name": "Name",
+        "age": 123,
+        "socials": {
+            "fb": "facebook.com/taskerify",
+            "tw": "twitter.com/taskerify"
+        }
+    })
+
+    @@include('./partials/scripts.html')
+</body>
+</html>
