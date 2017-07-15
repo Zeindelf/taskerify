@@ -8,8 +8,8 @@ var Taskerify   = require('./../index');
 var $      = Taskerify.Plugins;
 var config = Taskerify.config;
 
-Taskerify.extend('jsonInclude', function(src, output, options) {
-    new Taskerify.Task('json-include', function() {
+Taskerify.extend('partialifyJSON', function(src, output, options) {
+    new Taskerify.Task('partialify-json', function() {
         var paths = new Taskerify.GulpPaths()
             .src(src || config.get('src.json.folder'))
             .output(output || config.get('dist.json.outputFolder'));
@@ -17,7 +17,7 @@ Taskerify.extend('jsonInclude', function(src, output, options) {
         options = options || {};
 
         var configs = {
-            prefix: options.prefix || '@',
+            prefix: options.prefix || '@@',
             basepath: options.basepath || '@file',
             indent: options.indent || 2
         };

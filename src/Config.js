@@ -139,6 +139,11 @@ var config = {
         outputFolder: 'json'
     },
 
+    views: {
+        folder: 'views',
+        outputFolder: 'html'
+    },
+
     versioning: {
         buildFolder: 'dist'
     },

@@ -47,6 +47,7 @@
     "gulp-eslint": "^4.0.0",
     "gulp-file-include": "^1.1.0",
     "gulp-fix-json": "^0.0.1",
+    "gulp-html-prettify": "^0.0.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-json-format": "^1.0.0",
