@@ -13,3 +13,6 @@ Docs incomming!
 
 ## License
 Taskerify and Laravel Elixir is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Credits
+Special thanks to [Jeffrey Way](https://github.com/JeffreyWay) and all contributors of awesome Laravel Elixir!
