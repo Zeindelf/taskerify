@@ -51,6 +51,6 @@ describe('Gulp Paths', function () {
         expect(parsed.name).to.equal('file.txt');
         expect(parsed.extension).to.equal('.txt');
         expect(parsed.isDir).to.be.false;
-        expect(parsed.baseDir).to.equal(n('foo/bar/path'));
+        expect(parsed.baseDir).to.equal('foo/bar/path');
     });
 });

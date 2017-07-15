@@ -9,7 +9,8 @@ var config = {
     srcPath: 'src/assets',
     distPath: 'dist/assets',
     appPath: 'app',
-    viewPath: 'resources/views',
+    srcViewsPath: 'src',
+    distViewsPath: 'dist',
     sourcemaps: ! gutils.env.production,
     cleanDirs: ['dist'],
     batchOptions: {
@@ -169,7 +170,7 @@ config.get = function(path) {
 
     var segments = path.split('.');
 
-    if ( segments[0] == 'src' || segments[0] == 'dist' ) {
+    if ( segments[0] == 'src' || segments[0] == 'srcViews' || segments[0] == 'dist' || segments[0] == 'distViews' ) {
         basePath = config[segments.shift() + 'Path'];
     }
 

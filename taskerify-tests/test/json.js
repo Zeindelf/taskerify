@@ -16,8 +16,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | mantem nome original', function (done) {
         Taskerify( function (mix) {
-            // Taskerify.config.distPath = './dist';
-            return mix.jsonInclude(JSON_PATH + '/index.json');
+            return mix.partialifyJSON(JSON_PATH + '/index.json');
         });
 
         runGulp( function () {
@@ -29,7 +28,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | compara output padrão', function (done) {
         Taskerify( function (mix) {
-            return mix.jsonInclude(JSON_PATH + '/index.json');
+            return mix.partialifyJSON(JSON_PATH + '/index.json');
         });
 
         runGulp( function () {
@@ -57,7 +56,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | renomeia o original', function (done) {
         Taskerify( function (mix) {
-            return mix.jsonInclude(JSON_PATH + '/index.json', JSON_DIST + '/renamed-json.json');
+            return mix.partialifyJSON(JSON_PATH + '/index.json', JSON_DIST + '/renamed-json.json');
         });
 
         runGulp( function () {
@@ -69,7 +68,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | custom dist dir', function (done) {
         Taskerify( function (mix) {
-            return mix.jsonInclude(JSON_PATH + '/index.json', './dist/custom-dir/index.json');
+            return mix.partialifyJSON(JSON_PATH + '/index.json', './dist/custom-dir/index.json');
         });
 
         runGulp( function () {
@@ -81,7 +80,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | Indentacao de 4 espacos', function (done) {
         Taskerify( function (mix) {
-            return mix.jsonInclude(JSON_PATH + '/index.json', null, { indent: 4 });
+            return mix.partialifyJSON(JSON_PATH + '/index.json', null, { indent: 4 });
         });
 
         runGulp( function () {
@@ -109,7 +108,7 @@ describe('JSON Include Task', function () {
 
     it('faz inclusao dos arquivos .json | custom prefix include', function (done) {
         Taskerify( function (mix) {
-            return mix.jsonInclude('./taskerify-tests/src/json-custom/index.json', JSON_DIST + '/json-custom-prefix-include.json', { prefix: '__', indent: 1 });
+            return mix.partialifyJSON('./taskerify-tests/src/json-custom/index.json', JSON_DIST + '/json-custom-prefix-include.json', { prefix: '__', indent: 1 });
         });
 
         runGulp( function () {

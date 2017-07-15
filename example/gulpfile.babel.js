@@ -1,32 +1,36 @@
 
 import Taskerify from './../src/index';
 
-Taskerify.config.sourcemaps = false;         // Disable .map files
-Taskerify.config.distPath   = './test-dist'; // Dist Path
-Taskerify.config.srcPath    = './test-src';  // Src Path
+Taskerify.config.sourcemaps      = false;                // Disable .map files
+Taskerify.config.srcPath         = './test-src/assets';  // Src Path
+Taskerify.config.distPath        = './test-dist/assets'; // Dist Path
+Taskerify.config.srcViewsPath    = './test-src';         // Views Src Path
+Taskerify.config.distViewsPath   = './test-dist';        // Compiled Views Dist Path (HTML)
 
 // ImageMin configs
 Taskerify.config.images.minCompress       = 60;      // {int} Default value
 Taskerify.config.images.maxCompress       = 70;      // {int} Default value
 Taskerify.config.images.optimizationLevel = 5;       // {int} Default value
-Taskerify.config.images.quality           = '70-80'; // {string} Default value
+Taskerify.config.images.quality           = '70-80'; // {string} Default valuenm
 
 Taskerify( mix => {
-    const DIST  = Taskerify.config.distPath;
-    const SRC   = Taskerify.config.srcPath;
-    const files = ['app', 'main'];
-
-    // JSON Include Partial Files (Especially for Shopify's dev)
-    mix.partialifyJSON(`${SRC}/json/index.json`) // Compiled at: ./Taskerify.config.distPath/json/index.json
-        .partialifyJSON(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) //Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
-        .partialifyHTML(`${SRC}/views/index.html`) // Compiled at: ./Taskerify.config.distPath/index.html
-        .partialifyHTML(`${SRC}/views/index.html`, `${DIST}/html/renamed-file.html`); // Compiled at: ./Taskerify.config.distPath/html/html-renamed.json
+    const SRC         = Taskerify.config.srcPath;
+    const DIST        = Taskerify.config.distPath;
+    const SRC_VIEWS   = Taskerify.config.srcViewsPath + '/views';
+    const DIST_VIEWS  = Taskerify.config.distViewsPath;
+    const files       = ['app', 'main'];
 
     // ESLint activated
     mix.eslint();
 
+    // JSON and HTML Include Partial Files (Especially for Shopify's dev)
+    mix.partialifyJSON(`${SRC}/json/index.json`)                                                  // Compiled at: ./Taskerify.config.distPath/json/index.json
+        .partialifyJSON(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) // Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
+        .partialifyHTML(`${SRC_VIEWS}/index.html`)                                                // Compiled at: ./Taskerify.config.distViewsPath/html/index.html
+        .partialifyHTML(`${SRC_VIEWS}/index.html`, `${DIST_VIEWS}/html/renamed-file.html`);       // Compiled at: ./Taskerify.config.distViewsPath/html/html-renamed.json
+
     // Copy Task
-    mix.copy(`${SRC}/*.html`, `${DIST}/`);
+    mix.copy(`${SRC}/copy/*.txt`, `${DIST}/copy`);
 
     // Image Sprites Task
     mix.spriteIMG({
@@ -38,16 +42,16 @@ Taskerify( mix => {
     });
 
     // SVG Sprites Task
-    mix.spriteSVG(`${SRC}/img/sprite-svg`, `${DIST}/assets/img`);
+    mix.spriteSVG(`${SRC}/img/sprite-svg`, `${DIST}/img`);
 
     // Image Compress (General Images | Sprite Image)
-    mix.imagemin(`${SRC}/images`, `${DIST}/assets/img/compressed`)
-        .imagemin(`${SRC}/img/sprite-img.png`, `${DIST}/assets/img`)
+    mix.imagemin(`${SRC}/images`, `${DIST}/img/compressed`)
+        .imagemin(`${SRC}/img/sprite-img.png`, `${DIST}/img`)
         .clean(`${SRC}/img/sprite-img.png`);
 
     // CSS | JS Taskes for common files
     files.map( file => {
-        mix.sass(`${SRC}/scss/${file}.scss`, `${DIST}/assets/css`);
-        mix.browserify(`${SRC}/js/${file}.js`, `${DIST}/assets/js`);
+        mix.sass(`${SRC}/scss/${file}.scss`, `${DIST}/css`);
+        mix.browserify(`${SRC}/js/${file}.js`, `${DIST}/js`);
     });
 });
