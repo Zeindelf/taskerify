@@ -1,0 +1,30 @@
+/**
+ * custom-name Webfont
+ */
+@font-face {
+    font-family: 'custom-name';
+    src: url('../fonts/custom-name.eot');
+    src: url('../fonts/custom-name.eot') format('embedded-opentype'),
+        url('../fonts/custom-name.ttf') format('truetype'),
+        url('../fonts/custom-name.woff2') format('woff2'),
+        url('../fonts/custom-name.woff') format('woff'),
+        url('../fonts/custom-name.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin custom-iconfont-styles {
+    font-family: "custom-name";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%custom-iconfont {
+    @include custom-iconfont-styles;
+}

@@ -19,8 +19,6 @@ module.exports = function(name, src, command) {
             .pipe(notify.forPassedTests(name))
         );
     })
-    .watch(src)
-    .watch(Taskerify.config.appPath + '/**/*.php', 'tdd')
-    .watch(Taskerify.config.viewPath +'/**/*.php', 'tdd');
+    .watch(src);
 };
 

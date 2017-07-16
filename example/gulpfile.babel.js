@@ -20,6 +20,29 @@ Taskerify( mix => {
     const DIST_VIEWS  = Taskerify.config.distViewsPath;
     const files       = ['app', 'main'];
 
+    // SVG to Iconfonts (custom configs)
+    mix.iconfont({
+        /** Plugin options - Default Values */
+        // formats            : ['eot', 'ttf', 'woff', 'woff2', 'svg'],
+        // appendCodepoints   : true,
+        // prependUnicode     : false,
+        // normalize          : true,
+        // fontHeight         : 1001,
+        // centerHorizontally : true,
+
+        /** Fonts / CSS options */
+        // iconsPath       : `${SRC}/icons/`,                            // Default Value: /src/assets/icons/                           { .svg icons folder }
+        sassPath        : `${SRC}/scss/custom/`,                      // Default Value: /src/assets/sass/                            { folder to create iconfont SASS file }
+        fontPath        : '../fonts/',                                // Default Value: /dist/assets/fonts/                          { path to CSS }
+        // outputFontPath  : `${SRC}/fonts/`,                            // Default Value: /dist/assets/fonts/                          { path to save fonts files }
+        className       : 'custom-iconfont',                          // Default Value: 'iconfont'                                   { fonts class name }
+        iconFontName    : 'custom-name',                              // Default Value: 'iconfont'                                   { font family name }
+        template        : `${SRC}/storage/custom-template.scss`,      // Default Value: .scss/.css templates with all icons classes  { .scss/.css templates }
+        sassFileName    : '_custom-file',                             // Default Value: _iconfont.scss                               { .scss file name }
+        customExtension : '.custom',                                  // Default Value: false                                        { fonts file extension }
+        // hash            : Math.random().toString(36).substring(6),    // Default value                                              { string for cached fonts }
+    });
+
     // ESLint activated
     mix.eslint();
 

@@ -34,7 +34,10 @@ Taskerify.extend('partialifyHTML', function(src, output, options) {
                 prefix: configs.prefix,
                 basepath: configs.basepath
             }))
-            .pipe(prettify({indent_char: ' ', indent_size: configs.indent}))
+            .pipe(prettify({
+                indent_char: ' ',
+                indent_size: configs.indent
+            }))
             .pipe($.if( sources, rename(paths.output.name, paths.src.name) ))
             .pipe(gulp.dest(paths.output.baseDir))
             .pipe(new Taskerify.Notification('HTML generated'));
