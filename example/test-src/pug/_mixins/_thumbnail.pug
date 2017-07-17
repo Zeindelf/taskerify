@@ -1,0 +1,5 @@
+mixin thumbnail(imageName, caption, description)
+    div.thumbnail
+        img(class='thumbnail__img', src=`/img/${imageName}.jpg`)/
+        h4.thumbnail__caption= caption
+        p.thumbnail__description= description

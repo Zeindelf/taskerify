@@ -3,12 +3,12 @@
  */
 @font-face {
     font-family: 'custom-name';
-    src: url('../fonts/custom-name.eot');
-    src: url('../fonts/custom-name.eot') format('embedded-opentype'),
-        url('../fonts/custom-name.ttf') format('truetype'),
-        url('../fonts/custom-name.woff2') format('woff2'),
-        url('../fonts/custom-name.woff') format('woff'),
-        url('../fonts/custom-name.svg') format('svg');
+    src: url('../fonts/custom-name.eot.custom');
+    src: url('../fonts/custom-name.eot.custom') format('embedded-opentype'),
+        url('../fonts/custom-name.ttf.custom') format('truetype'),
+        url('../fonts/custom-name.woff2.custom') format('woff2'),
+        url('../fonts/custom-name.woff.custom') format('woff'),
+        url('../fonts/custom-name.svg.custom') format('svg');
     font-weight: normal;
     font-style: normal;
 }

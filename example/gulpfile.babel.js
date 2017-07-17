@@ -14,11 +14,14 @@ Taskerify.config.images.optimizationLevel = 5;       // {int} Default value
 Taskerify.config.images.quality           = '70-80'; // {string} Default valuenm
 
 Taskerify( mix => {
-    const SRC         = Taskerify.config.srcPath;
-    const DIST        = Taskerify.config.distPath;
-    const SRC_VIEWS   = Taskerify.config.srcViewsPath + '/views';
-    const DIST_VIEWS  = Taskerify.config.distViewsPath;
-    const files       = ['app', 'main'];
+    const SRC           = Taskerify.config.srcPath;
+    const DIST          = Taskerify.config.distPath;
+    const SRC_VIEWS     = Taskerify.config.srcViewsPath + '/views';
+    const DIST_VIEWS    = Taskerify.config.distViewsPath;
+    const files         = ['app', 'main'];
+
+    // PugJS Template
+    mix.pug(); // Default path: Taskerify.config.srcViewsPath (Same as partialifyHTML)
 
     // SVG to Iconfonts (custom configs)
     mix.iconfont({

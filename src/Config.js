@@ -155,7 +155,6 @@ var config = {
         reloadOnRestart : true,
         notify: true
     }
-
 };
 
 /**
