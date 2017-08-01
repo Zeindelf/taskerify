@@ -16,11 +16,9 @@ Taskerify.extend('iconfont', function (options) {
     var customExtension = false;
     var defaultOptions = {
         // Plugin options
-        formats            : ['eot', 'ttf', 'woff', 'woff2', 'svg'],
+        formats            : ['eot', 'ttf', 'woff', 'woff2'],
         appendCodepoints   : true,
-        prependUnicode     : false,
-        normalize          : true,
-        fontHeight         : 1001,
+        prependUnicode     : true,
         centerHorizontally : true,
         // Fonts / CSS options
         iconsPath       : config.srcPath + '/icons/',
