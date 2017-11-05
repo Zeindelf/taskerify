@@ -20,6 +20,14 @@ Taskerify( mix => {
     const DIST_VIEWS    = Taskerify.config.distViewsPath;
     const files         = ['app', 'main'];
 
+    // CSS Critical Rendering Path
+    mix.sass(`${SRC}/scss/critical-css.scss`, `${DIST}/css`);
+    mix.criticalCss(
+        `${DIST}/css/critical-css.css`, // Compiled CSS File (.css)
+        `${SRC_VIEWS}/partials`,        // Folder to receive a file with inline CSS
+        'critical-css.html'             // Name of a file with inline CSS (with extension name)
+    );
+
     // PugJS Template
     mix.pug(); // Default path: Taskerify.config.srcViewsPath (Same as partialifyHTML)
 
