@@ -29,12 +29,12 @@ Taskerify( mix => {
     );
 
     // PugJS Template
-    mix.pug(); // Default path: Taskerify.config.srcViewsPath (Same as partialifyHTML)
+    mix.pug(); // Default path: Taskerify.config.srcViewsPath (Same as partialifyHtml)
 
     // SVG to Iconfonts (custom configs)
     mix.iconfont({
         /** Plugin options - Default Values */
-        // formats            : ['eot', 'ttf', 'woff', 'woff2', 'svg'],
+        // formats            : ['eot', 'ttf', 'woff', 'woff2'],
         // appendCodepoints   : true,
         // prependUnicode     : false,
         // normalize          : true,
@@ -58,16 +58,16 @@ Taskerify( mix => {
     mix.eslint();
 
     // JSON and HTML Include Partial Files (Especially for Shopify's dev)
-    mix.partialifyJSON(`${SRC}/json/index.json`)                                                  // Compiled at: ./Taskerify.config.distPath/json/index.json
-        .partialifyJSON(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) // Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
-        .partialifyHTML(`${SRC_VIEWS}/index.html`)                                                // Compiled at: ./Taskerify.config.distViewsPath/html/index.html
-        .partialifyHTML(`${SRC_VIEWS}/index.html`, `${DIST_VIEWS}/html/renamed-file.html`);       // Compiled at: ./Taskerify.config.distViewsPath/html/html-renamed.json
+    mix.partialifyJson(`${SRC}/json/index.json`)                                                  // Compiled at: ./Taskerify.config.distPath/json/index.json
+        .partialifyJson(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) // Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
+        .partialifyHtml(`${SRC_VIEWS}/index.html`)                                                // Compiled at: ./Taskerify.config.distViewsPath/html/index.html
+        .partialifyHtml(`${SRC_VIEWS}/index.html`, `${DIST_VIEWS}/html/renamed-file.html`);       // Compiled at: ./Taskerify.config.distViewsPath/html/html-renamed.json
 
     // Copy Task
     mix.copy(`${SRC}/copy/*.txt`, `${DIST}/copy`);
 
     // Image Sprites Task
-    mix.spriteIMG({
+    mix.spriteImg({
         src: `${SRC}/img/sprite-img`,       // {string} Source Images
         imgName: 'sprite-img.png',          // {string} Sprite Name generator
         cssName: '_sprite-img.scss',        // {string} SASS File with Sprite Variables
@@ -76,7 +76,7 @@ Taskerify( mix => {
     });
 
     // SVG Sprites Task
-    mix.spriteSVG(`${SRC}/img/sprite-svg`, `${DIST}/img`);
+    mix.spriteSvg(`${SRC}/img/sprite-svg`, `${DIST}/img`);
 
     // Image Compress (General Images | Sprite Image)
     mix.imagemin(`${SRC}/images`, `${DIST}/img/compressed`)

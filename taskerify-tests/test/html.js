@@ -16,7 +16,7 @@ describe('HTML Include Task', function () {
 
     it('faz inclusao dos arquivos .html | mantem nome original', function (done) {
         Taskerify( function (mix) {
-            return mix.partialifyHTML(VIEWS_PATH + '/index.html');
+            return mix.partialifyHtml(VIEWS_PATH + '/index.html');
         });
 
         runGulp( function () {
@@ -28,7 +28,7 @@ describe('HTML Include Task', function () {
 
     it('faz inclusao dos arquivos .html | compara output padrão', function (done) {
         Taskerify( function (mix) {
-            return mix.partialifyHTML(VIEWS_PATH + '/index.html');
+            return mix.partialifyHtml(VIEWS_PATH + '/index.html');
         });
 
         runGulp( function () {
@@ -81,7 +81,7 @@ describe('HTML Include Task', function () {
 
     it('faz inclusao dos arquivos .html | renomeia o original', function (done) {
         Taskerify( function (mix) {
-            return mix.partialifyHTML(VIEWS_PATH + '/index.html', HTML_DIST + '/renamed-html.html');
+            return mix.partialifyHtml(VIEWS_PATH + '/index.html', HTML_DIST + '/renamed-html.html');
         });
 
         runGulp( function () {
@@ -93,7 +93,7 @@ describe('HTML Include Task', function () {
 
     it('faz inclusao dos arquivos .html | custom dist dir', function (done) {
         Taskerify( function (mix) {
-            return mix.partialifyHTML(VIEWS_PATH + '/index.html', './dist/custom-dir/index.html');
+            return mix.partialifyHtml(VIEWS_PATH + '/index.html', './dist/custom-dir/index.html');
         });
 
         runGulp( function () {
@@ -105,7 +105,7 @@ describe('HTML Include Task', function () {
 
     it('faz inclusao dos arquivos .html | Indentacao de 4 espacos', function (done) {
         Taskerify( function (mix) {
-            return mix.partialifyHTML(VIEWS_PATH + '/index.html', null, { indent: 4 });
+            return mix.partialifyHtml(VIEWS_PATH + '/index.html', null, { indent: 4 });
         });
 
         runGulp( function () {

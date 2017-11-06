@@ -7,7 +7,7 @@ var Taskerify   = require('./../index');
 var $      = Taskerify.Plugins;
 var config = Taskerify.config;
 
-Taskerify.extend('partialifyHTML', function(src, output, options) {
+Taskerify.extend('partialifyHtml', function(src, output, options) {
     new Taskerify.Task('partialify-html', function() {
         var paths = new Taskerify.GulpPaths()
             .src(src || config.get('srcViews.views.folder'))

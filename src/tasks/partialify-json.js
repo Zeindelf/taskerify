@@ -8,7 +8,7 @@ var Taskerify   = require('./../index');
 var $      = Taskerify.Plugins;
 var config = Taskerify.config;
 
-Taskerify.extend('partialifyJSON', function(src, output, options) {
+Taskerify.extend('partialifyJson', function(src, output, options) {
     new Taskerify.Task('partialify-json', function() {
         var paths = new Taskerify.GulpPaths()
             .src(src || config.get('src.json.folder'))

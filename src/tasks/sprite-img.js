@@ -5,7 +5,7 @@ var Taskerify = require('./../index');
 
 var Task = Taskerify.Task;
 
-Taskerify.extend('spriteIMG', function(options) {
+Taskerify.extend('spriteImg', function(options) {
 
     options = options || {};
     var spritesmithOptions = options;

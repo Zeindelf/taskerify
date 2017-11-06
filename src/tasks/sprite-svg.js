@@ -4,7 +4,7 @@ var Taskerify    = require('./../index');
 
 var config    = Taskerify.config;
 
-Taskerify.extend('spriteSVG', function(src, output, options) {
+Taskerify.extend('spriteSvg', function(src, output, options) {
     new Taskerify.Task('sprite-svg', function() {
         var paths = new Taskerify.GulpPaths()
             .src('**/*.svg', src || config.get('src.svgSprite.folder'))
