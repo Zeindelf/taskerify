@@ -14,7 +14,11 @@ var Task   = Taskerify.Task;
 Taskerify.extend('pug', function (src, output, options) {
     options = extend({
         pretty: true,
-        exclude: ['**/_partials/**/*.pug', '**/_mixins/**/*.pug'],
+        exclude: [
+            '**/_layouts/**/*.pug',
+            '**/_partials/**/*.pug',
+            '**/_mixins/**/*.pug',
+        ],
     }, options);
 
     var pugOptions = pick(
