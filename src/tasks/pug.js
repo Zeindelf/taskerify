@@ -15,9 +15,7 @@ Taskerify.extend('pug', function (src, output, options) {
     options = extend({
         pretty: true,
         exclude: [
-            '**/_layouts/**/*.pug',
-            '**/_partials/**/*.pug',
-            '**/_mixins/**/*.pug',
+            '**/_*/**',
         ],
     }, options);
 
