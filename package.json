@@ -1,12 +1,12 @@
 {
   "name": "taskerify",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "A task-builder based on Laravel-Elixir.",
   "main": "dist/index.js",
   "scripts": {
     "compile": "babel --presets=es2015 src -d dist",
     "test": "mocha ./taskerify-tests/test/*.js --colors --timeout 20000",
-    "prepublish": "npm run compile"
+    "prepublish": "npm test && npm run compile"
   },
   "repository": {
     "type": "git",
@@ -67,7 +67,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-shell": "^0.6.3",
     "gulp-sourcemaps": "^2.6.0",
-    "gulp-stylelint": "^5.0.0",
+    "gulp-stylelint": "3.9.0",
     "gulp-svg-sprite": "^1.3.7",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",

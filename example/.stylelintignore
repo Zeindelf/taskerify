@@ -2,3 +2,4 @@
 
 # Ignore any '/vendor/'
 **/vendor/**/*.scss
+**/custom/**/*.scss
