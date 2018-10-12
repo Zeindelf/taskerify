@@ -1,3 +1,5 @@
+
+var path = require('path');
 var gulp   = require('gulp');
 var eslint = require('gulp-eslint');
 var Taskerify = require('./../index');
@@ -5,10 +7,10 @@ var Taskerify = require('./../index');
 var notify = new Taskerify.Notification();
 var config = Taskerify.config;
 
-Taskerify.extend('eslint', function (src, options) {
+Taskerify.extend('eslint', function(src, options) {
     var paths = new Taskerify.GulpPaths()
         .src(src || [
-            config.get('src.js.folder') + '/**/*.js'
+            path.normalize(config.get('src.js.folder') + '/**/*.js'),
         ]);
 
     var onError = function (err) {
@@ -16,7 +18,7 @@ Taskerify.extend('eslint', function (src, options) {
         this.emit('end');
     };
 
-    new Taskerify.Task('eslint', function () {
+    new Taskerify.Task('eslint', function() {
         this.log(paths.src);
 
         return gulp.src(paths.src.path)

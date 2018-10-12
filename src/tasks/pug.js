@@ -1,21 +1,22 @@
 
-var gulp      = require('gulp');
-var extend    = require('extend');
-var pick      = require('object.pick');
-var pug       = require('gulp-pug');
-var plumber   = require('gulp-plumber');
-var ignore    = require('gulp-ignore');
+var path = require('path');
+var gulp = require('gulp');
+var extend = require('extend');
+var pick = require('object.pick');
+var pug = require('gulp-pug');
+var plumber = require('gulp-plumber');
+var ignore  = require('gulp-ignore');
 var Taskerify = require('./../index');
 
-var $      = Taskerify.Plugins;
+var $ = Taskerify.Plugins;
 var config = Taskerify.config;
-var Task   = Taskerify.Task;
+var Task = Taskerify.Task;
 
 Taskerify.extend('pug', function (src, output, options) {
     options = extend({
         pretty: true,
         exclude: [
-            '**/_*/**',
+            '**/_*/**/*.pug',
         ],
     }, options);
 
@@ -37,11 +38,10 @@ Taskerify.extend('pug', function (src, output, options) {
         ]
     );
 
-
     return new Task('pug', function () {
         var paths = new Taskerify.GulpPaths()
-            .src(src || config.get('srcViews.views.folder'))
-            .output(output || config.get('distViews.views.outputFolder'));
+            .src(src || path.normalize(config.get('srcViews.views.folder')))
+            .output(output || path.normalize(config.get('distViews.views.outputFolder')));
 
         this.log(paths.src, paths.output);
 
@@ -58,5 +58,5 @@ Taskerify.extend('pug', function (src, output, options) {
             .pipe(gulp.dest(paths.output.baseDir))
             .pipe(new Taskerify.Notification('Pug generated'));
     })
-    .watch(config.get('srcViews.views.folder') + '/**/*.pug');
+    .watch(path.normalize(config.get('srcViews.views.folder') + '/**/*.pug'));
 });

@@ -1,5 +1,5 @@
 
-import Taskerify from './../src/index';
+import Taskerify from '../src/index';
 
 Taskerify.config.sourcemaps      = false;                // Disable .map files
 Taskerify.config.srcPath         = './test-src/assets';  // Src Path
@@ -28,6 +28,10 @@ Taskerify( mix => {
         'critical-css.html'             // Name of a file with inline CSS (with extension name)
     );
 
+    // Linters
+    mix.eslint();
+    mix.stylelint();
+
     // PugJS Template
     mix.pug(); // Default path: Taskerify.config.srcViewsPath (Same as partialifyHtml)
 
@@ -54,9 +58,6 @@ Taskerify( mix => {
         // hash            : Math.random().toString(36).substring(6),    // Default value                                              { string for cached fonts }
     });
 
-    // ESLint activated
-    mix.eslint();
-
     // JSON and HTML Include Partial Files (Especially for Shopify's dev)
     mix.partialifyJson(`${SRC}/json/index.json`)                                                  // Compiled at: ./Taskerify.config.distPath/json/index.json
         .partialifyJson(`${SRC}/json-rename/index.json`, `${DIST}/json-rename/json-renamed.json`) // Compiled at: ./Taskerify.config.distPath/json-rename/json-rename.json
@@ -69,9 +70,10 @@ Taskerify( mix => {
     // Image Sprites Task
     mix.spriteImg({
         src: `${SRC}/img/sprite-img`,       // {string} Source Images
+        cssOutput: `${SRC}/scss/vendor`,    // {string} Dir for SASS sprite file
         imgName: 'sprite-img.png',          // {string} Sprite Name generator
         cssName: '_sprite-img.scss',        // {string} SASS File with Sprite Variables
-        imgPath: './../img/sprite-img.png', // {string} Path to use in CSS referring to image location
+        imgPath: '../img/sprite-img.png', // {string} Path to use in CSS referring to image location
         imgOutput: `${SRC}/img`,            // {string} Path to save sprite
     });
 
