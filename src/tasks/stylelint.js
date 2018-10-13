@@ -11,7 +11,6 @@ var config = Taskerify.config;
 
 Taskerify.extend('stylelint', function(src, options) {
     options = extend({
-        debug: true,
         failAfterError: true,
         reporters: [
             {
