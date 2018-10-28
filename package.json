@@ -1,6 +1,6 @@
 {
   "name": "taskerify",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A task-builder based on Laravel-Elixir.",
   "main": "dist/index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "del": "^3.0.0",
     "eslint": "^5.6.1",
     "glob": "^7.1.2",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^7.0.0",
     "gulp-batch": "^1.0.5",
@@ -93,7 +94,6 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
-    "gulp": "^3.9.1",
     "mocha": "^4.0.1",
     "rimraf": "^2.6.1"
   }
