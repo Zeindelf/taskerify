@@ -1,0 +1,30 @@
+/**
+ * <%= fontName %> Webfont
+ */
+@font-face {
+    font-family: '<%= fontName %>';
+    src: url('<%= fontPath %><%= fontName %>.eot<%= customExtension %>');
+    src: url('<%= fontPath %><%= fontName %>.eot<%= customExtension %>') format('embedded-opentype'),
+        url('<%= fontPath %><%= fontName %>.ttf<%= customExtension %>') format('truetype'),
+        url('<%= fontPath %><%= fontName %>.woff2<%= customExtension %>') format('woff2'),
+        url('<%= fontPath %><%= fontName %>.woff<%= customExtension %>') format('woff'),
+        url('<%= fontPath %><%= fontName %>.svg<%= customExtension %>') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin <%= className %>-styles {
+    font-family: "<%= fontName %>";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+%<%= className %> {
+    @include <%= className %>-styles;
+}
