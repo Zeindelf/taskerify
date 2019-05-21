@@ -1,46 +1,44 @@
-var gulp        = require('gulp');
-var fileinclude = require('gulp-file-include');
-var prettify    = require('gulp-html-prettify');
-var rename      = require("gulp-rename");
-var Taskerify   = require('./../index');
+const gulp = require('gulp');
+const fileinclude = require('gulp-file-include');
+const prettify = require('gulp-html-prettify');
+const rename = require("gulp-rename");
+const Taskerify = require('./../index');
 
-var $      = Taskerify.Plugins;
-var config = Taskerify.config;
+const $ = Taskerify.Plugins;
+const config = Taskerify.config;
 
 Taskerify.extend('partialifyHtml', function(src, output, options) {
-    new Taskerify.Task('partialify-html', function() {
-        var paths = new Taskerify.GulpPaths()
-            .src(src || config.get('srcViews.views.folder'))
-            .output(output || config.get('distViews.views.outputFolder'));
+  const paths = new Taskerify.GulpPaths()
+    .src(src || config.get('srcViews.views.folder'))
+    .output(output || config.get('distViews.views.outputFolder'));
 
-        options = options || {};
+  new Taskerify.Task('partialify-html', function() {
+    options = options || {};
 
-        var configs = {
-            prefix: options.prefix || '@@',
-            basepath: options.basepath || '@file',
-            indent: options.indent || 2
-        };
+    const configs = {
+      prefix: options.prefix || '@@',
+      basepath: options.basepath || '@file',
+      indent: options.indent || 2,
+    };
 
-        var sources = false;
-        src = src || false;
-        output = output || false;
+    const sources = false;
+    src = src || false;
+    output = output || false;
 
-        if ( src && output ) {
-            sources = true;
-        }
+    if ( src && output ) sources = true;
 
-        return gulp.src(paths.src.path)
-            .pipe(fileinclude({
-                prefix: configs.prefix,
-                basepath: configs.basepath
-            }))
-            .pipe(prettify({
-                indent_char: ' ',
-                indent_size: configs.indent
-            }))
-            .pipe($.if( sources, rename(paths.output.name, paths.src.name) ))
-            .pipe(gulp.dest(paths.output.baseDir))
-            .pipe(new Taskerify.Notification('HTML generated'));
-    })
-    .watch(config.get('srcViews.views.folder') + '/**/*.html');
+    return gulp.src(paths.src.path)
+      .pipe(fileinclude({
+        prefix: configs.prefix,
+        basepath: configs.basepath,
+      }))
+      .pipe(prettify({
+        indent_char: ' ',
+        indent_size: configs.indent,
+      }))
+      .pipe($.if( sources, rename(paths.output.name, paths.src.name) ))
+      .pipe(gulp.dest(paths.output.baseDir))
+      .pipe(new Taskerify.Notification('HTML generated'));
+  })
+  .watch((paths.src.baseDir || config.get('src.views.folder')) + '/**/*.html');
 });
