@@ -1,6 +1,6 @@
 {
   "name": "taskerify",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "A task-builder based on Laravel-Elixir.",
   "main": "dist/index.js",
   "scripts": {
