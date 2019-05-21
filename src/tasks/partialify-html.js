@@ -21,7 +21,7 @@ Taskerify.extend('partialifyHtml', function(src, output, options) {
       indent: options.indent || 2,
     };
 
-    const sources = false;
+    let sources = false;
     src = src || false;
     output = output || false;
 
