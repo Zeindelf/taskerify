@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "compile": "babel --presets=es2015 src -d dist",
-    "test": "mocha ./taskerify-tests/test/*.js --colors --timeout 20000",
-    "prepublish": "npm test && npm run compile"
+    "test": "mocha ./taskerify-tests/test/json.js --colors --timeout 20000",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",
