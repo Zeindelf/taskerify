@@ -1,100 +1,39 @@
 {
   "name": "taskerify",
-  "version": "1.8.3",
-  "description": "A task-builder based on Laravel-Elixir.",
-  "main": "dist/index.js",
+  "version": "2.0.0-beta.0",
+  "description": "The Extension of Laravel Mix.",
+  "main": "src/index.js",
   "scripts": {
-    "compile": "babel --presets=es2015 src -d dist",
-    "test": "mocha ./taskerify-tests/test/json.js --colors --timeout 20000",
-    "prepublish": "npm run compile"
+    "test": "eslint ./src/"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/zeindelf/taskerify"
   },
-  "keywords": [
-    "taskerify",
-    "tasker",
-    "task",
-    "runner",
-    "gulp",
-    "laravel",
-    "elixir"
-  ],
   "author": {
     "name": "Wellington Barreto",
     "email": "zeindelf@hotmail.com",
     "homepage": "https://www.zeindelf.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "app-root-path": "^2.0.1",
-    "babel-cli": "^6.24.1",
-    "babel-eslint": "^8.0.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browser-sync": "^2.18.12",
-    "browserify": "^14.4.0",
-    "del": "^3.0.0",
-    "eslint": "^5.6.1",
-    "glob": "^7.1.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^7.0.0",
-    "gulp-batch": "^1.0.5",
-    "gulp-changed": "^3.1.0",
-    "gulp-coffee": "^2.3.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-util": "^0.5.5",
-    "gulp-consolidate": "^0.2.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-eslint": "^4.0.0",
-    "gulp-file-include": "^2.0.0",
-    "gulp-fix-json": "^0.0.1",
-    "gulp-html-prettify": "^0.0.1",
-    "gulp-iconfont": "^9.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-ignore": "^2.0.2",
-    "gulp-imagemin": "^4.0.0",
-    "gulp-json-format": "^1.0.0",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^8.1.0",
-    "gulp-rev-replace": "^0.4.3",
-    "gulp-sass": "^3.1.0",
-    "gulp-shell": "^0.6.3",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-stylelint": "3.9.0",
-    "gulp-svg-sprite": "^1.3.7",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "gulp-watch": "^4.3.11",
-    "gulp.spritesmith": "^6.5.1",
-    "imagemin-jpeg-recompress": "^5.1.0",
-    "imagemin-pngquant": "^5.0.1",
-    "insert-css": "^2.0.0",
-    "merge-stream": "^1.0.1",
-    "parse-filepath": "^1.0.1",
-    "partialify": "^3.1.6",
-    "path": "^0.12.7",
-    "require-dir": "^0.3.2",
-    "run-sequence": "^2.0.0",
-    "stylelint": "^9.6.0",
-    "stylelint-scss": "^3.3.1",
-    "underscore": "^1.8.3",
-    "underscore-deep-extend": "^1.1.5",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-paths": "^2.1.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.9.0"
+  "bugs": {
+    "url": "https://github.com/zeindelf/taskerify/issues"
   },
+  "homepage": "https://github.com/zeindelf/taskerify#README",
   "devDependencies": {
-    "chai": "^4.1.0",
-    "mocha": "^4.0.1",
-    "rimraf": "^2.6.1"
+    "eslint": "^5.16.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.5",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cli-table": "^0.3.1",
+    "colors": "^1.3.3",
+    "cross-env": "^5.2.0",
+    "escape-string-regexp": "^2.0.0",
+    "laravel-mix": "^4.0.15",
+    "node-notifier": "^5.4.0"
+  },
+  "engines": {
+    "node": "> 8.15.0"
   }
 }

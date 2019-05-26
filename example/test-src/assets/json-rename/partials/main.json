@@ -1,8 +1,0 @@
-"main-rename": {
-  "property1-rename": "Bar",
-  "property2-rename": "Foo",
-  "property3-rename": "Bar Foo",
-  "property4-rename": "Foo Bar",
-
-  @@include('./sub-partials/sub-main.json')
-},

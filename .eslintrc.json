@@ -1,0 +1,41 @@
+{
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"extends": "eslint:recommended",
+	"parserOptions": {
+		"sourceType": "module"
+	},
+	"rules": {
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"no-fallthrough": [
+			"error",
+			{
+				"commentPattern": "([Nn][Oo][NnTt]?\\s*[Bb][Rr][Ee][Aa][Kk])|([Ff][Aa][Ll][Ll][Ss]?\\s*[Tt][Hh][Rr][Oo][Uu][Gg][Hh])"
+			}
+		],
+		"quotes": [
+			"error",
+			"single",
+			{
+				"allowTemplateLiterals": true,
+				"avoidEscape": true
+			}
+		],
+		"semi": [
+			"error",
+			"always"
+		]
+	}
+}

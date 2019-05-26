@@ -1,9 +1,0 @@
-"sub-main-rename": {
-  "property1-1-rename": "Foo",
-  "property1-2-rename": "Bar",
-  "property1-3-rename": "Foo Bar",
-  "property1-4-rename": "Bar Foo",
-  "property1-5-rename": "Foo Bar Foo",
-  "property1-6-rename": "Bar Foo Bar",
-  "property1-7-rename": "Foo Bar Foo Bar",
-},

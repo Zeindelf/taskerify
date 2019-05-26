@@ -1,6 +1,0 @@
-nav.main-nav
-    ul.main-nav__items
-        each itemName in ['Home', 'Categories', 'About Us', 'Contact']
-            - var itemHash = itemName.toLowerCase()
-            li.main-nav__item
-                a(class="main-nav__link", href=`#${itemHash}`, title=itemName)= itemName

@@ -1,5 +1,0 @@
-{
-  @@include('./partials/header.json')
-  @@include('./partials/main.json')
-  @@include('./partials/footer.json')
-}

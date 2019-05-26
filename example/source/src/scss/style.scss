@@ -1,0 +1,46 @@
+// Custom example code
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100%;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../img/iceland-sunshine.jpg');
+  color: transparent;
+  font-family: sans-serif;
+}
+
+@keyframes colors {
+  $length: 360;
+
+  @for $i from 0 through $length {
+    #{$i * 100% / $length} {
+      color: hsl($i * 360 / $length, 100%, 62.5%);
+    }
+  }
+}
+
+#app {
+  > h1 {
+    > span {
+      $time: 1s;
+      $length: 13;
+
+      animation: $time linear infinite colors;
+
+        @for $j from 1 through $length {
+          &:nth-child(#{$length}n+#{$j}) {
+            animation-delay: (($j - 1) / $length * $time);
+          }
+        }
+      }
+    }
+  }
