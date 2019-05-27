@@ -1,11 +1,8 @@
 {
   "scripts": {
-    "dev": "npx cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/taskerify/config",
-    "watch": "npx cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/taskerify/config",
-    "hot": "npx cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/taskerify/config",
-    "production": "npx cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/taskerify/config"
-  },
-  "engines": {
-    "node": "> 8.15.0"
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/taskerify/config",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/taskerify/config",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/taskerify/config",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/taskerify/config"
   }
 }
