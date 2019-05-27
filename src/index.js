@@ -5,6 +5,9 @@
  */
 const mix = require('laravel-mix');
 
+mix.pug = require('laravel-mix-pug');
+require('laravel-mix-eslint');
+
 /**
  * File system with extra methods
  * This module is the dependency of the Laravel Mix.

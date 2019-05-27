@@ -20,14 +20,14 @@
     "url": "https://github.com/zeindelf/taskerify/issues"
   },
   "homepage": "https://github.com/zeindelf/taskerify#README",
-  "devDependencies": {
-    "eslint": "^5.16.0"
-  },
   "dependencies": {
     "browser-sync": "^2.26.5",
     "browser-sync-webpack-plugin": "^2.2.2",
     "cross-env": "^5.2.0",
+    "dotenv-webpack": "^1.7.0",
     "laravel-mix": "^4.0.15",
+    "laravel-mix-eslint": "^0.1.3",
+    "laravel-mix-pug": "^0.3.0",
     "resolve-url-loader": "^2.3.1",
     "sass": "^1.20.1",
     "sass-loader": "^7.1.0",

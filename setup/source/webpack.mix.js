@@ -20,7 +20,7 @@ mix
   .setPublicPath('dist')
   .js('src/js/script.js', 'dist/js/')
   .sass('src/scss/style.scss', 'dist/css/')
-  .tpl('src/index.html', 'dist/index.html')
+  .copy('src/index.html', 'dist/index.html')
   .out({
     images: {
       directory: 'img',
