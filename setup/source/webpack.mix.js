@@ -20,16 +20,7 @@ mix
   .setPublicPath('dist')
   .js('src/js/script.js', 'dist/js/')
   .sass('src/scss/style.scss', 'dist/css/')
-  .copy('src/index.html', 'dist/index.html')
-  .out({
-    images: {
-      directory: 'img',
-      extensions: ['svg'] // This is only the difference from default.
-    },
-    fonts: 'font',
-  })
-  .browserSync() // Call it only after calling mix.setPublicPath()!
-;
+  .copy('src/index.html', 'dist/index.html');
 
 // Full API
 // mix.js(src, output);
