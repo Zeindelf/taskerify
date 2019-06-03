@@ -146,6 +146,8 @@ class Pug {
                 loader: 'pug-loader',
                 options: {
                   pretty: !this.production,
+                  ignore: ['**/node_modules/**/*', '**/components/**/*', '**/control/**/*', '**/_*.*'],
+                  debug: false,
                 }
               }
             ]
@@ -194,4 +196,4 @@ class Pug {
   }
 }
 
-module.exports = Pug;
+module.exports = new Pug();
