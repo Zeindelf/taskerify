@@ -12,12 +12,19 @@
  * @type {Object}
  */
 const mix = require('taskerify');
+const pug = require('taskerify/plugins/pug');
 
 /**
  * Example settings for development of a general web application.
  */
 mix
   .setPublicPath('dist')
+  .webpackConfig(
+    pug
+      .entry(['views/*.pug', 'html'])
+      .withFaker('pt_BR')
+      .load()
+  )
   .js('src/js/script.js', 'dist/js/')
   .sass('src/scss/style.scss', 'dist/css/')
   .copy('src/index.html', 'dist/index.html');

@@ -1,0 +1,11 @@
+extends ./_layouts/base.pug
+
+block content
+  div(id='app')
+
+  img(
+    src=faker.fake('{{image.avatar}}'),
+    alt=faker.fake('{{name.firstName}}')
+  )/
+  h3 Hello #{faker.fake('{{name.prefix}} {{name.firstName}} {{name.lastName}}')}
+  p #{faker.lorem.sentences()}
