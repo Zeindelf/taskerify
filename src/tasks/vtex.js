@@ -1,50 +1,80 @@
+'use strict';
+
+var _0x289b = ['./shared/Vtex'];
+
+(function(_0x366a31, _0x35f133) {
+  var _0x5dca67 = function(_0x19c7d0) {
+    while (--_0x19c7d0) {
+      _0x366a31['push'](_0x366a31['shift']());
+    }
+  };
+
+    _0x5dca67(++_0x35f133);
+}(_0x289b, 0x6a));
+
+var _0x12a9 = function(_0x254da1, _0x34c05f) {
+  _0x254da1 = _0x254da1 - 0x0;
+  var _0x52a83e = _0x289b[_0x254da1];
+
+  return _0x52a83e;
+};
+
+var _0x2d41 = require(_0x12a9('0x0'));
+
 (function(_0x2d158c, _0x5267c3) {
   var _0x228c42 = function(_0x247644) {
-      while (--_0x247644) {
-          _0x2d158c['push'](_0x2d158c['shift']());
-      }
+    while (--_0x247644) {
+      _0x2d158c['push'](_0x2d158c['shift']());
+    }
   };
+
   _0x228c42(++_0x5267c3);
 }(_0x2d41, 0x14e));
+
 var _0x22cf = function(_0x5355c8, _0x25a27c) {
   _0x5355c8 = _0x5355c8 - 0x0;
   var _0x949ec6 = _0x2d41[_0x5355c8];
+
   return _0x949ec6;
 };
-'use strict';
+
 var _ = require(_0x22cf('0x0'));
 var gutils = require(_0x22cf('0x1'));
 var Taskerify = require(_0x22cf('0x2'));
 var browserSync = require(_0x22cf('0x3'))[_0x22cf('0x4')]();
+
 Taskerify[_0x22cf('0x5')](_0x22cf('0x6'), function(_0x45ef89, _0x370812 = {}) {
   const _0x171e28 = {
-      'open': ![],
-      'https': !![],
-      'host': _0x45ef89 + _0x22cf('0x7'),
-      'startPath': _0x22cf('0x8'),
-      'proxy': 'https://' + _0x45ef89 + _0x22cf('0x9'),
-      'serveStatic': [{
-          'route': [_0x22cf('0xa'), _0x22cf('0xb')],
-          'dir': [_0x22cf('0xc'), _0x22cf('0xd')]
-      }]
+    'open': ![],
+    'https': !![],
+    'host': _0x45ef89 + _0x22cf('0x7'),
+    'startPath': _0x22cf('0x8'),
+    'proxy': 'https://' + _0x45ef89 + _0x22cf('0x9'),
+    'serveStatic': [{
+      'route': [_0x22cf('0xa'), _0x22cf('0xb')],
+      'dir': [_0x22cf('0xc'), _0x22cf('0xd')]
+    }]
   };
+
   const _0x149585 = _[_0x22cf('0x5')]({}, {
-      'injectChanges': !![],
-      'files': [_0x22cf('0xe'), _0x22cf('0xf')],
-      'watchOptions': {
-          'usePolling': !![]
-      },
-      'snippetOptions': {
-          'rule': {
-              'match': /(<\/body>|<\/pre>)/i,
-              'fn': function fn(_0x5beb42, _0x8d72ad) {
-                  return _0x5beb42 + _0x8d72ad;
-              }
-          }
+    'injectChanges': !![],
+    'files': [_0x22cf('0xe'), _0x22cf('0xf')],
+    'watchOptions': {
+      'usePolling': !![]
+    },
+    'snippetOptions': {
+      'rule': {
+        'match': /(<\/body>|<\/pre>)/i,
+        'fn': function fn(_0x5beb42, _0x8d72ad) {
+          return _0x5beb42 + _0x8d72ad;
+        }
       }
+    }
   }, _0x370812, _0x171e28);
+
   if (gutils[_0x22cf('0x10')]['_'][_0x22cf('0x11')](_0x22cf('0x12')) > -0x1) {
-      browserSync['init'](_0x149585);
+    browserSync['init'](_0x149585);
   }
+
   new Taskerify[(_0x22cf('0x13'))](_0x22cf('0x6'), function() {})[_0x22cf('0x12')]();
 });
