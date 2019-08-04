@@ -3,9 +3,11 @@
  *
  * @type {Object}
  */
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
-require('laravel-mix-eslint');
+require("laravel-mix-eslint");
+require("../plugins/pug");
+require("../plugins/vtex");
 
 /**
  * File system with extra methods
@@ -13,7 +15,7 @@ require('laravel-mix-eslint');
  *
  * @type {Object}
  */
-const fs = require('fs-extra');
+const fs = require("fs-extra");
 
 //----------------------------------------------------------------
 // The mix.setPublicPath() method
@@ -45,7 +47,7 @@ mix.__proto__.setPublicPath = function setPublicPath(path) {
     fs.ensureDirSync(Config.publicPath);
   }
 
-	return this;
+  return this;
 };
 
 //----------------------------------------------------------------
@@ -76,16 +78,16 @@ mix.__proto__.browserSync = function browserSync(config) {
     this,
     Object.assign(
       // Watch files
-      { files: [Config.publicPath + '/**/*'] },
+      { files: [Config.publicPath + "/**/*"] },
       // Service
-      process.argv.includes('--hot')
-        ? { proxy: typeof config === 'string' ? config : 'localhost:8080' }
+      process.argv.includes("--hot")
+        ? { proxy: typeof config === "string" ? config : "localhost:8080" }
         : {
-          proxy: undefined,
-          server: { baseDir: [Config.publicPath] }
-        },
+            proxy: undefined,
+            server: { baseDir: [Config.publicPath] }
+          },
       // Custom options
-      config && typeof config === 'object' ? config : {}
+      config && typeof config === "object" ? config : {}
     )
   );
 };
@@ -114,8 +116,8 @@ Config.out = {};
  *   }
  * }
  */
-addOutProperty(Config.out, 'images', ['png', 'jpe?g', 'gif']);
-addOutProperty(Config.out, 'fonts', ['woff2?', 'ttf', 'eot', 'svg', 'otf']);
+addOutProperty(Config.out, "images", ["png", "jpe?g", "gif"]);
+addOutProperty(Config.out, "fonts", ["woff2?", "ttf", "eot", "svg", "otf"]);
 
 /**
  * Add an output directory settings to the configuration.
@@ -129,20 +131,16 @@ function addOutProperty(out, directory, extensions) {
     extensions: extensions
   };
 
-  Object.defineProperty(
-    out[directory],
-    'directory',
-    {
-      get: function () {
-        return Config.fileLoaderDirs[directory];
-      },
-      set: function (value) {
-        Config.fileLoaderDirs[directory] = value;
-      },
-      enumerable: true,
-      configurable: false
-    }
-  );
+  Object.defineProperty(out[directory], "directory", {
+    get: function() {
+      return Config.fileLoaderDirs[directory];
+    },
+    set: function(value) {
+      Config.fileLoaderDirs[directory] = value;
+    },
+    enumerable: true,
+    configurable: false
+  });
 
   out[directory].directory = out[directory].directory || directory;
 }
@@ -154,30 +152,25 @@ function addOutProperty(out, directory, extensions) {
  * @param  {Object} options The custom settings.
  * @return {Object}         The "this" (to chaining), that is the mix object.
  */
-Object.defineProperty(
-  mix.__proto__,
-  'out',
-  {
-    value: function out(options) {
-      if (
-        options
-        &&
-        (typeof options === 'object' || typeof options === 'function')
-      ) {
-        for (let key in Config.out) {
-          if (Config.out.hasOwnProperty(key)) {
-            setOutProperty(key, options);
-          }
+Object.defineProperty(mix.__proto__, "out", {
+  value: function out(options) {
+    if (
+      options &&
+      (typeof options === "object" || typeof options === "function")
+    ) {
+      for (let key in Config.out) {
+        if (Config.out.hasOwnProperty(key)) {
+          setOutProperty(key, options);
         }
       }
+    }
 
-      return this;
-    },
-    writable: true,
-    enumerable: false,
-    configurable: true
-  }
-);
+    return this;
+  },
+  writable: true,
+  enumerable: false,
+  configurable: true
+});
 
 /**
  * Set a property (which corresponds to an output directory) of Config.out object.
@@ -188,22 +181,18 @@ Object.defineProperty(
 function setOutProperty(key, options) {
   if (options[key]) {
     // Directory
-    let directory = (
-      typeof options[key] === 'string' && options[key]
-      ||
-      !Array.isArray(options[key]) && options[key].directory
-    );
+    let directory =
+      (typeof options[key] === "string" && options[key]) ||
+      (!Array.isArray(options[key]) && options[key].directory);
 
     if (directory) {
-      Config.out[key].directory = '' + directory;
+      Config.out[key].directory = "" + directory;
     }
 
     // Extensions
-    let extensions = (
-      Array.isArray(options[key]) && options[key]
-      ||
-      Array.isArray(options[key].extensions) && options[key].extensions
-    );
+    let extensions =
+      (Array.isArray(options[key]) && options[key]) ||
+      (Array.isArray(options[key].extensions) && options[key].extensions);
 
     if (extensions) {
       for (let k in Config.out) {
@@ -214,7 +203,9 @@ function setOutProperty(key, options) {
           );
         }
       }
-      Config.out[key].extensions = Config.out[key].extensions.concat(extensions);
+      Config.out[key].extensions = Config.out[key].extensions.concat(
+        extensions
+      );
     }
   }
 }
@@ -230,7 +221,7 @@ function arraySubtraction(arrA, arrB) {
   arrA = arrA.slice();
 
   for (let i = 0; i < arrB.length; ++i) {
-    arrA = arrA.filter(function (value) {
+    arrA = arrA.filter(function(value) {
       return value !== arrB[i];
     });
   }
