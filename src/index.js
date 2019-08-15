@@ -3,11 +3,18 @@
  *
  * @type {Object}
  */
-const mix = require("laravel-mix");
+const mix = require('laravel-mix');
 
-require("laravel-mix-eslint");
-require("../plugins/pug");
-require("../plugins/vtex");
+require('laravel-mix-eslint');
+require('../plugins/pug');
+require('../plugins/vtex');
+
+require('../lib/notifications');
+
+/**
+ * Disable mix-manifest file
+ */
+Mix.manifest.refresh = _ => 0;
 
 /**
  * File system with extra methods
@@ -15,7 +22,7 @@ require("../plugins/vtex");
  *
  * @type {Object}
  */
-const fs = require("fs-extra");
+const fs = require('fs-extra');
 
 //----------------------------------------------------------------
 // The mix.setPublicPath() method
@@ -78,16 +85,16 @@ mix.__proto__.browserSync = function browserSync(config) {
     this,
     Object.assign(
       // Watch files
-      { files: [Config.publicPath + "/**/*"] },
+      { files: [Config.publicPath + '/**/*'] },
       // Service
-      process.argv.includes("--hot")
-        ? { proxy: typeof config === "string" ? config : "localhost:8080" }
+      process.argv.includes('--hot')
+        ? { proxy: typeof config === 'string' ? config : 'localhost:8080' }
         : {
             proxy: undefined,
             server: { baseDir: [Config.publicPath] }
           },
       // Custom options
-      config && typeof config === "object" ? config : {}
+      config && typeof config === 'object' ? config : {}
     )
   );
 };
@@ -116,8 +123,8 @@ Config.out = {};
  *   }
  * }
  */
-addOutProperty(Config.out, "images", ["png", "jpe?g", "gif"]);
-addOutProperty(Config.out, "fonts", ["woff2?", "ttf", "eot", "svg", "otf"]);
+addOutProperty(Config.out, 'images', ['png', 'jpe?g', 'gif']);
+addOutProperty(Config.out, 'fonts', ['woff2?', 'ttf', 'eot', 'svg', 'otf']);
 
 /**
  * Add an output directory settings to the configuration.
@@ -131,7 +138,7 @@ function addOutProperty(out, directory, extensions) {
     extensions: extensions
   };
 
-  Object.defineProperty(out[directory], "directory", {
+  Object.defineProperty(out[directory], 'directory', {
     get: function() {
       return Config.fileLoaderDirs[directory];
     },
@@ -228,6 +235,11 @@ function arraySubtraction(arrA, arrB) {
 
   return arrA;
 }
+
+/**
+ * Internal self invoke methods
+ */
+mix.prettyNotifications();
 
 /**
  * The extended Laravel Mix.

@@ -27,8 +27,8 @@ class Pug {
 
   /**
    * @description
-   * Inject a faker globar variable in pug files
-   * see fakers.js documentation for more informations
+   * Inject a faker global variable in pug files
+   * See fakers.js documentation for more informations
    */
   withFaker(fakerLocale) {
     this.faker = new webpack.ProvidePlugin({
