@@ -6,6 +6,8 @@
 const mix = require('laravel-mix');
 
 require('laravel-mix-eslint');
+require('laravel-mix-bundle-analyzer');
+require('../plugins/imagemin');
 require('../plugins/pug');
 require('../plugins/vtex');
 

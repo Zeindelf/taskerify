@@ -12,21 +12,17 @@
  * @type {Object}
  */
 const mix = require('taskerify');
-const pug = require('taskerify/plugins/pug');
 
 /**
  * Example settings for development of a general web application.
  */
 mix
   .setPublicPath('dist')
-  .webpackConfig(
-    pug
-      .entry(['views/*.pug', 'html'])
-      .withFaker('pt_BR')
-      .load()
-  )
-  .js('src/js/script.js', 'dist/js/')
-  .sass('src/scss/style.scss', 'dist/css/')
+  .setResourceRoot('src')
+  .js('src/js/script.js', 'dist/js')
+  .sass('src/scss/style.scss', 'dist/css')
+  .pug('views', 'html', { fakerLocale: 'pt_BR' })
+  .imagemin('src/img', 'dist/img')
   .copy('src/index.html', 'dist/index.html');
 
 // Full API
@@ -35,6 +31,9 @@ mix
 // mix.preact(src, output); <-- Identical to mix.js(), but registers Preact compilation.
 // mix.coffee(src, output); <-- Identical to mix.js(), but registers CoffeeScript compilation.
 // mix.ts(src, output); <-- TypeScript support. Requires tsconfig.json to exist in the same folder as webpack.mix.js
+// mix.eslint(); <-- ESLint for JS files
+// mix.imagemin('src', 'output', options = {}); // Minify images
+// mix.pug('src', 'output', { fakerLocale: 'en' }); <-- PUG Template compiler with FakerJS
 // mix.extract(vendorLibs);
 // mix.sass(src, output);
 // mix.standaloneSass('src', output); <-- Faster, but isolated from Webpack.
@@ -58,6 +57,7 @@ mix
 // mix.babelConfig({}); <-- Merge extra Babel configuration (plugins, etc.) with Mix's default.
 // mix.then(function () {}) <-- Will be triggered each time Webpack finishes building.
 // mix.extend(name, handler) <-- Extend Mix's API with your own components.
+// mix.bundleAnalyzer(); <-- Bundle analyzer for JS packages
 // mix.options({
 //   extractVueStyles: false, // Extract .vue component styling to file, rather than inline.
 //   globalVueStyles: file, // Variables file to be imported in every component.
