@@ -10,6 +10,7 @@ require('laravel-mix-bundle-analyzer');
 require('../plugins/imagemin');
 require('../plugins/pug');
 require('../plugins/vtex');
+require('../plugins/stylelint');
 
 require('../lib/notifications');
 
