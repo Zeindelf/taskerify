@@ -1,6 +1,6 @@
 {
   "name": "taskerify",
-  "version": "2.0.0-canary.5",
+  "version": "2.0.0-canary.6",
   "description": "The Extension of Laravel Mix.",
   "main": "src/index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
     "stylelint-webpack-plugin": "^1.0.3",
+    "vue-template-compiler": "2.6.10",
     "webpack-build-notifications": "^0.3.2"
   },
   "engines": {
