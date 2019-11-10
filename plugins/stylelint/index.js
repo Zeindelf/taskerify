@@ -1,10 +1,9 @@
 const mix = require('laravel-mix');
 
 /**
- * Lint stylesheets via ESLINT
+ * Lint stylesheets via Stylelint
  *
  * return {void}
- *
  */
 class StylelintMixin {
   /**
@@ -13,6 +12,14 @@ class StylelintMixin {
    * @return {String|Array}   Name
    */
   name() {
+    return ['stylelint'];
+  }
+
+  dependencies() {
+    this.requiresReload = `
+      Dependencies have been installed. Please run "npm run dev" again.
+    `;
+
     return ['stylelint'];
   }
 
