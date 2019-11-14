@@ -13,16 +13,28 @@ class Pug {
     return ["pug"];
   }
 
-  register(src, dist, customOptions = {}) {
+  register(src, dist, options = {}) {
     this.rootPath = path.resolve(__dirname, "../../../../");
     this.production =
       process.env.NODE_ENV === "production" || process.argv.includes("-p");
 
     const views = path.resolve(this.rootPath, src);
-    const options = _.extend({}, customOptions);
+
+    this.options = {
+      pretty: !this.production,
+      ignore: [
+        "**/node_modules/**/*",
+        "**/components/**/*",
+        "**/control/**/*",
+        "**/_*/**",
+        "**/_*.*"
+      ],
+      debug: false,
+      ...options,
+    };
 
     this.htmlPlugins = this.generateHtmlPlugins(views, dist);
-    options.fakerLocale && this.withFaker(options.fakerLocale);
+    this.options.fakerLocale && this.withFaker(this.options.fakerLocale);
   }
 
   /**
@@ -55,22 +67,10 @@ class Pug {
   webpackRules() {
     return {
       test: /\.pug/,
-      use: [
-        {
-          loader: "pug-loader",
-          options: {
-            pretty: !this.production,
-            ignore: [
-              "**/node_modules/**/*",
-              "**/components/**/*",
-              "**/control/**/*",
-              "**/_*/**",
-              "**/_*.*"
-            ],
-            debug: false
-          }
-        }
-      ]
+      use: [{
+        loader: "pug-loader",
+        options: this.options,
+      }],
     };
   }
 
