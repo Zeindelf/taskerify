@@ -1,6 +1,6 @@
 {
   "name": "taskerify",
-  "version": "2.0.0-canary.7",
+  "version": "2.0.0-canary.8",
   "description": "The Extension of Laravel Mix.",
   "main": "src/index.js",
   "scripts": {
