@@ -11,6 +11,7 @@ require('../plugins/pug');
 require('../plugins/vtex');
 require('../plugins/eslint');
 require('../plugins/stylelint');
+require('../plugins/pug-linter');
 
 require('../lib/notifications');
 
