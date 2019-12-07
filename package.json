@@ -46,6 +46,7 @@
     "sass-loader": "^8.0.0",
     "strip-css-comments": "^4.0.0",
     "stylelint-webpack-plugin": "^1.0.3",
+    "uglify-js": "^3.7.1",
     "vue-template-compiler": "2.6.10",
     "webpack-build-notifications": "^0.3.2"
   },
